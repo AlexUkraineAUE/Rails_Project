@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  release_date: 2024-03-02 18:54:25
+  rating: 1.5
+  times_listed: 1
+  number_of_reviews: 1
+  summary: MyText
+  plays: 1
+  playing: 1
+  backlogs: 1
+  wishlist: 1
+
+two:
+  title: MyString
+  release_date: 2024-03-02 18:54:25
+  rating: 1.5
+  times_listed: 1
+  number_of_reviews: 1
+  summary: MyText
+  plays: 1
+  playing: 1
+  backlogs: 1
+  wishlist: 1

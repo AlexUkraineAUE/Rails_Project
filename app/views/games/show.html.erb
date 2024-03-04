@@ -1,0 +1,35 @@
+<% content_for(:html_title) {@game.title}%>
+<div class = "content">
+<h2 class="title is-2"><%= @game.title %></h2>
+<progress class="progress is-info" value="<%=@game.rating%>" max=5>
+    <%= @game.rating%>
+</progress>
+<p class="mb-5">
+    <strong>
+        This game received <%= @game.reviews.count %> reviews with avegare rating of <%= @game.rating %>. 
+    </strong>
+</p>
+<p class="mb-5">
+    <strong>
+        The game was released on <%= @game.formatted_release_date %>. 
+    </strong>
+</p>
+<p class="mb-5">
+    <strong>
+        Summary:
+    </strong>
+    <%= @game.summary %>
+</p>
+<p class="mb-5">
+    <strong>
+        Reviews:
+    </strong>
+    <ul>
+        <% @game.reviews.each do |review| %>
+             <li>
+               <%= review.content %>
+            </li>
+        <% end %>
+    </ul>
+</p>
+</div>

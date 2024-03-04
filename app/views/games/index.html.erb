@@ -1,0 +1,8 @@
+<h1>Games</h1>
+<ul>
+    <% @games.each do |g|%>
+    <li>
+        <%= link_to g.title, g %>
+    </li>
+     <% end %>
+</ul>
