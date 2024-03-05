@@ -5,5 +5,6 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @game = @review.game
   end
 end

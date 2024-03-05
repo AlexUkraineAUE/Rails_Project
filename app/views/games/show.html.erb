@@ -27,7 +27,7 @@
     <ul>
         <% @game.reviews.each do |review| %>
              <li>
-               <%= review.content %>
+               <%= link_to review.content, review_path(review) %>
             </li>
         <% end %>
     </ul>
