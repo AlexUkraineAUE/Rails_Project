@@ -27,10 +27,20 @@ games.each do |r|
     reviews.each do |review_content|
       review = game.reviews.create(content: review_content)
       unless review&.valid?
-        puts puts "Invalid review '#{review_content}' for game #{r['Title']}: #{review.errors.full_messages.join(', ')}"
+        puts "Invalid review '#{review_content}' for game #{r['Title']}: #{review.errors.full_messages.join(', ')}"
       end
     end
+
+    teams = r["Team"].split(",").map(&:strip)
+
+    teams.each do |team_name|
+      team = Team.find_or_create_by(name: team_name)
+      game.teams << team
+    end
+
+
 end
 
 puts "Created #{Game.count} Games"
 puts "Created #{Review.count} Reviews"
+puts "Created #{Team.count} Teams"
