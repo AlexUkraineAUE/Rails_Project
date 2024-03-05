@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   get 'about', to: 'about#index'
+  get 'games', to: 'games#index'
+  get 'teams', to: 'teams#index'
+  get 'genres', to: 'genres#index'
+
   resources :games, only: [:index, :show]
   resources :reviews, only: [:index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
