@@ -1,0 +1,17 @@
+<h1 class="title is-1">About</h1>
+
+<div class="mb-5">
+    <h2 class="title is-2">Data Sources Information</h2>
+    <p>
+      <%= @data_sources_info %>
+    </p>
+  </div>
+
+  <div class="mb-5">
+    <h2 class="title is-2">Entity-Relationship Diagram (ERD)</h2>
+    <p>
+      <%= @erd_description %>
+    </p>
+    <%= image_tag(@erd_image_path, alt: 'ERD Diagram', class: 'img-fluid') %>
+  </div>
+</div>
