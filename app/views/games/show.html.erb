@@ -14,6 +14,20 @@
         The game was released on <%= @game.formatted_release_date %>. 
     </strong>
 </p>
+
+<p class="mb-5">
+    <strong>
+        Development team(s): 
+    </strong>
+    <ul>
+        <% @game.teams.each do |team| %>
+             <li>
+               <%= link_to team.name, team_path(team) %>
+            </li>
+        <% end %>
+    </ul>
+</p>
+
 <p class="mb-5">
     <strong>
         Summary:

@@ -38,9 +38,16 @@ games.each do |r|
       game.teams << team
     end
 
+    genres = r["Genres"].split(",").map { |genre| genre.strip }
+
+    genres.each do |g|
+      genre = Genre.find_or_create_by(name: g)
+      game.genres << genre
+    end
 
 end
 
 puts "Created #{Game.count} Games"
 puts "Created #{Review.count} Reviews"
 puts "Created #{Team.count} Teams"
+puts "Created #{Genre.count} Genres"

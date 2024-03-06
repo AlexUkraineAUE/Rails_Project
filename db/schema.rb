@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_05_071441) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_06_044113) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.datetime "release_date"
@@ -20,9 +20,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_071441) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "games_teams", id: false, force: :cascade do |t|
+  create_table "games_genres", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_games_genres_on_game_id"
+    t.index ["genre_id"], name: "index_games_genres_on_genre_id"
+  end
+
+  create_table "games_teams", force: :cascade do |t|
     t.integer "game_id", null: false
     t.integer "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_games_teams_on_game_id"
+    t.index ["team_id"], name: "index_games_teams_on_team_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -44,4 +57,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_071441) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "games_genres", "games"
+  add_foreign_key "games_genres", "genres"
+  add_foreign_key "games_teams", "games"
+  add_foreign_key "games_teams", "teams"
 end
