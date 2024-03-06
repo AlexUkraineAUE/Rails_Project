@@ -30,6 +30,19 @@
 
 <p class="mb-5">
     <strong>
+        Genre(s): 
+    </strong>
+    <ul>
+        <% @game.genres.each do |genre| %>
+             <li>
+               <%= link_to genre.name, genre_path(genre) %>
+            </li>
+        <% end %>
+    </ul>
+</p>
+
+<p class="mb-5">
+    <strong>
         Summary:
     </strong>
     <%= @game.summary %>
