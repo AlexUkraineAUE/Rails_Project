@@ -1,11 +1,9 @@
 <p class="mb-5">
-  
   <% if @genres %>
     Found <%= pluralize(@genres.count, 'Genres') %> when searching for: <%= params[:keywords] %>
   <% else %>
     No genres found when searching for: <%= params[:keywords] %>
   <% end %>
-
 </p>
 <ul>
   <% @genres.each do |genre| %>

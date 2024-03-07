@@ -4,7 +4,7 @@ class AboutController < ApplicationController
                           The data can be devided into 4 tables. The Games table will have the following columns:id, title, release_date, rating, summary.
                           Teams table will have many to many relation with video games table and contain id and team name columns.
                           Genres table will also have many to many relation with video games table and have id and genre name columns.
-                          Latly, the Rewies table has 1 to many relation with video games table and should have id, game_id, and content as columns."
+                          Lastly, the Reviews table has 1 to many relation with video games table and should have id, game_id, and content as columns."
 
     @erd_description = "Below is the Entity-Relationship Diagram for this project. It represents the relationships between different tables in our database. It visualizes how data entities are connected and structured."
 
