@@ -3,7 +3,8 @@ class Game < ApplicationRecord
   has_and_belongs_to_many :teams
   has_many :reviews
 
-  validates :title, :release_date, :rating, :summary, presence: true
+  validates :title, :rating, :summary, presence: true
+  validates :release_date, presence: true
   validates :title, uniqueness: true
   validates :rating, numericality: { greater_than_or_equal_to: 0,  less_than_or_equal_to: 5}
 
