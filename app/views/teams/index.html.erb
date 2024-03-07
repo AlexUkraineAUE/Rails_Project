@@ -1,7 +1,9 @@
-<h1>All Teams</h1>
+<h1 class="title is-1">All Teams</h1>
 
 <ul>
   <% @teams.each do |team| %>
     <li><%= link_to team.name, team_path(team) %></li>
   <% end %>
 </ul>
+
+<%= paginate @teams %>

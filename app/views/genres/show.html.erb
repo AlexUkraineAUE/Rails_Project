@@ -1,5 +1,5 @@
-<h1><%= @genre.name %></h1>
-<h2>Below games are classified as <%= @genre.name %></h2>
+<h1 class="title is-1"><%= @genre.name %></h1>
+<h2 class="title is-2">Below games are classified as <%= @genre.name %></h2>
 <ul>
   <% @games.each do |game| %>
     <li><%= link_to game.title, game_path(game) %></li>

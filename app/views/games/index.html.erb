@@ -1,4 +1,4 @@
-<h1>Games</h1>
+<h1 class="title is-1">Games</h1>
 <ul>
     <% @games.each do |g|%>
     <li>
@@ -6,3 +6,5 @@
     </li>
      <% end %>
 </ul>
+
+<%= paginate @games %>
