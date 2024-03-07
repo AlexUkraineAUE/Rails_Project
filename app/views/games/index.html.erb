@@ -3,12 +3,12 @@
 <%= form_with(url: search_games_path, method: :get, local: true)  do %>
        <div class="field is-grouped mb-5">
         
-        <div class="form-group">
+        <div class="control">
             <%= label_tag "Teams" %>
             <%= collection_select(:team, :team_ids, Team.all, :id, :name, { prompt: "Select Team" }, class: "form-control") %>
         </div>
 
-        <div class="form-group">
+        <div class="control">
             <%= label_tag "Genres" %>
             <%= collection_select(:genre, :genre_ids, Genre.all, :id, :name, { prompt: "Select Genre" }, class: "form-control") %>
         </div>
@@ -16,7 +16,7 @@
         <div class="control is-expanded">
             <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Search For Games') %>
         </div>
-        
+
         <div class="control">
           <%= submit_tag('Search', class: "button is-primary")%>
         </div>
