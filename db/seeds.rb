@@ -1,9 +1,58 @@
 require 'csv'
+require 'faker'
 
 Game.delete_all
 Genre.delete_all
 Team.delete_all
 Review.delete_all
+
+# Number of fake games to generate
+number_of_fake_games = 20
+
+reviews = []
+number_of_fake_games.times do
+  reviews << Faker::Lorem.paragraph
+end
+
+# Create fake teams
+teams = []
+number_of_fake_games.times do
+  teams << Faker::Team.name
+end
+
+# Create fake genres
+genres = []
+number_of_fake_games.times do
+  genres << Faker::Game.genre
+end
+
+# Create fake games
+number_of_fake_games.times do
+  title = Faker::Game.title
+  release_date = Faker::Date.between(from: 5.years.ago, to: Date.today)
+  rating = Faker::Number.decimal(l_digits: 1, r_digits: 1)
+  summary = Faker::Lorem.paragraph
+
+  game = Game.create(
+    title: title,
+    release_date: release_date,
+    rating: rating,
+    summary: summary
+  )
+
+  # Create reviews, teams, and genres for each game
+  game.reviews.create(content: reviews[i])
+  team = Team.find_or_create_by(name: teams[i])
+  game.teams << team
+  genre = Genre.find_or_create_by(name: genres[i])
+  game.genres << genre
+
+end
+
+puts "Created #{Game.count} Games using Faker"
+puts "Created #{Review.count} Reviews using Faker"
+puts "Created #{Team.count} Teams using Faker"
+puts "Created #{Genre.count} Genres using Faker"
 
 #fetch the filename
 filename = Rails.root.join("db/games.csv")
