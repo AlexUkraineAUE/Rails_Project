@@ -1,0 +1,17 @@
+<p class="mb-5">
+  <% if @teams %>
+    Found <%= pluralize(@teams.count, 'Teams') %> when searching for: <%= params[:keywords] %>
+  <% else %>
+    No teams found when searching for: <%= params[:keywords] %>
+  <% end %>
+</p>
+
+<ul>
+  <% if @teams %>
+    <% @teams.each do |team| %>
+      <li>
+        <%= link_to team.name, team %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

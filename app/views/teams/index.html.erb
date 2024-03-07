@@ -1,4 +1,15 @@
-<h1 class="title is-1">All Teams</h1>
+<h1 class="title is-1">All Development Teams</h1>
+
+<%= form_with(url: search_teams_path, method: :get, local: true)  do |form|%>
+       <div class="field is-grouped mb-5">
+        <div class="control is-expanded">
+            <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Search For Teams') %>
+        </div>
+        <div class="control">
+          <%= submit_tag('Search', class: "button is-primary")%>
+        </div>
+       </div>
+      <% end %>
 
 <ul>
   <% @teams.each do |team| %>

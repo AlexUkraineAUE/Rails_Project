@@ -7,4 +7,9 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @games = @team.games
   end
+
+  def search
+    wildcard_search = "%#{params[:keywords]}%"
+    @teams = Team.where("name LIKE ?", wildcard_search)
+  end
 end

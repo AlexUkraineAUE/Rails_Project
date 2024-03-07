@@ -1,0 +1,15 @@
+<p class="mb-5">
+  <% if @games %>
+    Found <%= pluralize(@games.count, 'Games') %>.
+  <% else %>
+    No games were found.
+  <% end %>
+
+</p>
+<ul>
+  <% @games.each do |game| %>
+    <li>
+      <%= link_to game.title, game %>
+    </li>
+  <% end %>
+</ul> 

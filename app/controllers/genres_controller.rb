@@ -7,4 +7,9 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @games = @genre.games
   end
+
+  def search
+    wildcard_search = "%#{params[:keywords]}%"
+    @genres = Genre.where("name LIKE ?", wildcard_search)
+  end
 end
